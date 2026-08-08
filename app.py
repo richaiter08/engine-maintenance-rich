@@ -28,9 +28,12 @@ MODEL_CANDIDATES = [
 def load_model():
     for model_path in MODEL_CANDIDATES:
         if model_path.exists():
-            return joblib.load(model_path)
+            try:
+                return joblib.load(model_path)
+            except (ValueError, AttributeError):
+                continue
 
-    # Fallback: train if no saved model exists
+    # Fallback: train if no saved model exists or all candidates failed to load
     from train_pipeline import train_and_save_model
 
     model, _ = train_and_save_model()
