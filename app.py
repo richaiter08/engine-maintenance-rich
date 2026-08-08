@@ -30,7 +30,7 @@ def load_model():
         if model_path.exists():
             try:
                 return joblib.load(model_path)
-            except (ValueError, AttributeError):
+            except Exception:
                 continue
 
     # Fallback: train if no saved model exists or all candidates failed to load
