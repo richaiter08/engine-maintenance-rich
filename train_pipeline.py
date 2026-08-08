@@ -19,7 +19,7 @@ FEATURE_COLUMNS = [
 TARGET_COLUMN = "Engine_Condition"
 
 BASE_DIR = Path(__file__).resolve().parent
-DATA_PATH = BASE_DIR / "data" / "train.csv"
+DATA_PATH = BASE_DIR / "train.csv"
 MODEL_DIR = BASE_DIR / "artifacts"
 MODEL_PATH = MODEL_DIR / "best_model.pkl"
 METRICS_PATH = MODEL_DIR / "metrics.json"
